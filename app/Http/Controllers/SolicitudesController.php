@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Mail;
 
 class SolicitudesController extends Controller
 {
-    
-    
     public function solicitudesIndex() {
         $solicitudes = Solicitud::join('users', 'solicitudes.id_usuario', '=', 'users.id')
             ->join('status', 'solicitudes.id_status', '=', 'status.id')

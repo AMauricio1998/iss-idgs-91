@@ -21,6 +21,13 @@
                     >
                     <i class="fa-solid fa-xl fa-file-pdf"> </i> Generar PDF 
                     </a>
+
+                    <a 
+                        href="{{ route('excel-solicitudes') }}"
+                        class="text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-800 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700"
+                    >
+                        Generar excel <i class="fa-solid fa-file-excel"></i>
+                    </a>
                 </div>
                 <table class='mt-2 mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
                     <thead class="bg-gray-900">

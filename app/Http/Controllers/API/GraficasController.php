@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class GraficasController extends Controller
+class GraficasController extends Controller 
 {
     public function graficas(){
 
@@ -17,25 +18,11 @@ class GraficasController extends Controller
             ->orderBy(DB::raw('count(*)'))
             ->take(3)
             ->get();
-
-            $solicitudes = json_decode($solicitudes);
-            return $solicitudes;
-
-            $solicitudes_usuario = DB::table('detalle_solicitudes')
-            ->join('productos', 'detalle_solicitudes.id_producto', '=', 'productos.id')
-            ->select('detalle_solicitudes.id_producto', 'productos.nombre')
-            ->selectRaw('count(detalle_solicitudes.id_producto) as num_pedidos')
-            ->where('solicitudes.id_usuario', auth()->user()->id)
-            ->groupby('detalle_solicitudes.id_producto', 'productos.nombre')
-            ->orderBy(DB::raw('count(*)'))
-            ->take(3)
-            
-            ->get();
-
-            $soli_usuarios = json_decode($solicitudes_usuario);
-            return $solicitudes;
+        
+        return response()->json($solicitudes);
     }
-    public function grafica(){
+
+    public function grafica() {
         $usuarios = DB::table('users')
             ->select(DB::raw('count(*) as cantidad'))
             ->get();
@@ -67,6 +54,13 @@ class GraficasController extends Controller
             ->where('id_status', '=', 3)
             ->get();
 
-        return view('dashboard')->with(compact('usuarios', 'ususActivos', 'ususInactivos', 'soliCreadas', 'soliPendientes', 'soliCompletadas'));
-    }    
+        return response()->json([
+            'usuarios' => $usuarios,
+            'usuarios_activos' => $ususActivos,
+            'usuarios_inactivos' => $ususInactivos,
+            'solicitudes_creadas' => $soliCreadas,
+            'solicitudes_pendientes' => $soliPendientes,
+            'solicitudes_completadas' => $soliCompletadas
+        ]);
+    }
 }

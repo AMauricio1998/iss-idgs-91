@@ -19,6 +19,13 @@
                 >
                     Nuevo usuario
                 </a>
+                
+                <a 
+                    href="{{ route('excel-usuarios') }}"
+                    class="text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-800 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700"
+                >
+                    Generar excel <i class="fa-solid fa-file-excel"></i>
+                </a>
             </div>
             <table class='mt-2 mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
                 <thead class="bg-gray-900">
@@ -99,7 +106,7 @@
                                         class="bg-red-500 font-bold py-2 px-2 rounded-lg flex flex-raw mx-1 hover:bg-red-400"
                                         method="POST" name="borrar">
                                         @csrf
-                                        {{ method_field('DELETE')}}
+                                        {{ method_field('DELETE') }}
                                         <button type="submit" title="Eliminar">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -121,4 +128,6 @@
 
         </div>
     </div>
+
+    
 </x-app-layout>

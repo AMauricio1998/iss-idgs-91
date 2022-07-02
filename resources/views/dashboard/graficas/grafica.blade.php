@@ -36,7 +36,6 @@
                 </header>
                 <div id="chartdiv" class="h-96 w-auto"></div>
     </div>
-    
     <div class="mt-20 md:mt-5 shadow-lg px-5 rounded-xl w-auto">
         <header class="text-center bg-gray-300 w-auto rounded-lg">
             <span class="text-black font-bold">Informacion de las </span><span class="font-bold text-indigo-600">solicitudes</span>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\UsuariosFromView;
 use App\Http\Controllers\AreasController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CategoriasController;
@@ -82,6 +83,10 @@ Route::group(['prefix' => 'dashboard/admin', 'middleware' => ['auth']], function
     //--------------- Generar PDF ------------------------
     Route::name('solicitudes-PDF')->get('/solicitudes-PDF', [ReportesAdminController::class, 'generar']); //PDF todas las solicitudes
     Route::name('solicitud-PDF')->get('solicitud-PDF/{id?}',[ReportesAdminController::class, 'solicitud_PDF']); //Solicitud en especifico con su detalle
+
+    // -- excel ----
+    Route::name('excel-usuarios')->get('/excel-usuarios', [ReportesAdminController::class, 'usuariosExcel']); 
+    Route::name('excel-solicitudes')->get('/excel-solicitudes', [ReportesAdminController::class, 'solicitudesExcel']); 
 });
 
 Route::group(['prefix' => 'dashboard/user', 'middleware' => ['auth', 'rol.admin']], function() {

@@ -178,6 +178,8 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class
     ],
 
     /*
@@ -236,6 +238,7 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class
     ],
 
 ];
