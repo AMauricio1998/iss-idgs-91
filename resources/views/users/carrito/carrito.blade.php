@@ -113,10 +113,20 @@
         <center class="mt-4">
                 @foreach ($user as $usu)
                     <span class="hidden" id="user_id">{{ $usu->id }}</span> 
-                    <span class="hidden" id="name">{{ $usu->name }}</span> 
-                    <span id="surname" class="hidden">{{ $usu->app }} {{ $usu->apm }}</span>
+                    <div class="flex flex-col justify-center w-auto mt-2">
+                        <p class="text-center">
+                            Hola 
+                                <span id="name" class="text-indigo-700 font-bold">{{ $usu->name }}</span> 
+                                <span id="surname" class="text-indigo-700 font-bold">{{ $usu->app }} {{ $usu->apm }}</span>,
+                            este servicio es gratuito, sin embargo puedes hacer una pequeña donacion de <span class="text-indigo-700 font-bold">$5</span> 
+                        </p>
+                        <p class="text-center">
+                            para seguir adquiriendo productos, 
+                            solo da click en el siguiente boton e ingresa tus datos. 
+                        </p>
+                    </div>
                 @endforeach
-                <div id="paypal-button-container"></div>
+                <div id="paypal-button-container" class="mt-2"></div>
         </center>
     </div>
   </div>

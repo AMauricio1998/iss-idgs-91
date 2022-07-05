@@ -148,7 +148,9 @@
                 
                 <x-responsive-nav-link :href="route('informacion-cart')" :active="request()->routeIs('informacion-cart')">
                     {{ __('Carrito') }}
-                    
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('nueva-solicitud')" :active="request()->routeIs('nueva-solicitud')">
+                    {{ __('Productos') }}
                 </x-responsive-nav-link>
             @endif
         </div>
