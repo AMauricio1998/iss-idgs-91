@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Producto;
 use App\Models\ProductosImagen;
 use App\Models\Solicitud;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -46,9 +47,14 @@ class CarritoController extends Controller
     }
 
     public function informacion_cart() {
+        $user = DB::table('users')
+                ->select('users.name', 'users.id' ,'users.app', 'users.apm', 'users.email', 'users.cod_postal', 'users.colonia', 'users.calle')
+                ->where('users.id', '=', Auth::user()->id)
+                ->get();
+
         $cartItems = \Cart::session(Auth::user()->id)->getContent();
 
-        return view('users.carrito.carrito', compact('cartItems')); 
+        return view('users.carrito.carrito', compact('cartItems', 'user')); 
     }
 
     public function eliminar_carrito(){
@@ -208,13 +214,17 @@ class CarritoController extends Controller
 
     public function mostrar_carrito($codigo){
         $cartItems = \Cart::session(auth()->user()->id)->getContent();
+        $user = DB::table('users')
+                    ->select('users.name', 'users.app', 'users.apm', 'users.email', 'users.cod_postal', 'users.colonia', 'users.calle')
+                    ->where('users.id', '=', Auth::user()->id)
+                    ->get();
         
         $cdSolicitud = DB::table('solicitudes')
         ->select('id_solicitud','codigo_solicitud')
         ->where('codigo_solicitud',$codigo)
         ->get();
 
-        return view('users.carrito.carrito', compact('cartItems', 'cdSolicitud')); 
+        return view('users.carrito.carrito', compact('cartItems', 'cdSolicitud', 'user')); 
     }
 
     public function solicitudUpdate($codigo){

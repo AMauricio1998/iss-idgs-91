@@ -11,12 +11,13 @@
         "consoletvs/charts": "7.*",
         "darryldecode/cart": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "^7.4",
         "laravel/framework": "^8.75",
         "laravel/passport": "^10.4",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "maatwebsite/excel": "^3.1",
+        "paypal/rest-api-sdk-php": "*",
         "realrashid/sweet-alert": "^5.1"
     },
     "require-dev": {

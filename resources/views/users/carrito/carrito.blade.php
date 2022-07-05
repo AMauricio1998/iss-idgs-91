@@ -9,7 +9,7 @@
 
     <!-- component -->
 <div class="flex justify-center my-6">
-    <div class="flex flex-col w-full p-8 rounded-lg text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5 relative">
+    <div class="flex flex-col w-full p-14 rounded-lg text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5 relative">
         <div class="rounded-lg flex flex-rows justify-around bg-gradient-to-r from-blue-400 to-blue-700 -top-3 w-2/3 items-center mx-28 absolute h-14">
             <div>
                 <a href="{{ route('eliminar-carrito') }}" class="hover:bg-blue-600 rounded-lg py-1 px-1 border-2 border-gray-300 opacity-100 bg-blue-400 font-semibold text-white">
@@ -104,13 +104,24 @@
     @else
         <center>
             <a 
-            href="{{ route('nueva-solicitud') }}" 
-            class="bg-blue-500 py-1 px-1 font-semibold rounded-lg border-2 border-gray-300 text-white hover:bg-blue-700">
+                href="{{ route('nueva-solicitud') }}" 
+                class="bg-blue-500 py-1 px-1 font-semibold rounded-lg border-2 border-gray-300 text-white hover:bg-blue-700">
                 Agregar mas productos
             </a>
         </center>
     @endif
+        <center class="mt-4">
+                @foreach ($user as $usu)
+                    <span class="hidden" id="user_id">{{ $usu->id }}</span> 
+                    <span class="hidden" id="name">{{ $usu->name }}</span> 
+                    <span id="surname" class="hidden">{{ $usu->app }} {{ $usu->apm }}</span>
+                @endforeach
+                <div id="paypal-button-container"></div>
+        </center>
     </div>
   </div>
 </div>
 </x-app-layout>
+
+    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=MXN&buyer-country=MX"></script>
+    <script type="text/javascript" src="{{ asset('/js/paypal.js') }}"></script>

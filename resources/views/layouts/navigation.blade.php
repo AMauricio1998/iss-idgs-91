@@ -55,6 +55,10 @@
                             </svg>{{ __('Solicitudes') }}
                         </x-nav-link>
                         
+                        <x-nav-link :href="route('nueva-solicitud')" :active="request()->routeIs('nueva-solicitud')">
+                            <i class="fa-solid fa-scissors"></i>{{ __('Productos') }}
+                        </x-nav-link>
+                        
                         <x-nav-link :href="route('informacion-cart')" :active="request()->routeIs('informacion-cart')">
                             <i class="fa-solid fa-cart-shopping "></i>{{ __('Carrito') }}
                             <span 
