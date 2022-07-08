@@ -82,8 +82,8 @@
                         <img src="{{ asset('img/features-icon-1.svg') }}" alt="alternative" />
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Platform Integration</h5>
-                        <p class="mb-4">You sales force can the app on any smartphone platform without compatibility issues</p>
+                        <h5 class="card-title">Mision</h5>
+                        <p class="mb-4"></p>
                     </div>
                 </div>
 
@@ -92,8 +92,8 @@
                         <img src="{{ asset('img/features-icon-2.svg') }}" alt="alternative" />
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Easy On Resources</h5>
-                        <p class="mb-4">Works smoothly even on older generation hardware due to our optimization efforts</p>
+                        <h5 class="card-title">Vision</h5>
+                        <p class="mb-4"></p>
                     </div>
                 </div>
 
@@ -125,9 +125,9 @@
                     </iframe>
                 </div>
                 <div class="lg:mt-24 xl:mt-44 xl:ml-12">
-                    <p class="mb-9 text-gray-800 text-3xl leading-10">Team management mobile applications don’t get much better than Pavo. Download it today</p>
-                    <a class="btn-solid-lg" href="#your-link"><i class="fab fa-apple"></i>Ingresar</a>
-                    <a class="btn-solid-lg secondary" href="#your-link"><i class="fab fa-google-play"></i>Logout</a>
+                    <p class="mb-9 text-gray-800 text-3xl leading-10">Grupo ISS, consulta nuestra hubicacion o cantactanos.</p>
+                    <a class="btn-solid-lg" href="#your-link">Ingresar</a>
+                    <a class="btn-solid-lg secondary" href="#your-link">Logout</a>
                 </div>
             </div> 
         </div> 
@@ -144,7 +144,7 @@
         <div class="copyright">
             <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-3">
                 <ul class="mb-4 list-unstyled p-small">
-                    <li class="mb-2"><a href="article.html">Article Details</a></li>
+                    <li class="mb-2"><a href="article.html">Contacto</a></li>
                 </ul>
                 <p class="pb-2 p-small statement">Copyright © <a href="#your-link" class="no-underline">{{ Date::now()->format('Y') }}</a></p>
 

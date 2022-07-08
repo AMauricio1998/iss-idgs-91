@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+// KN^XGSW7Hb2WP(ztN#RL
 use App\Models\Area;
 use App\Models\Producto;
 use Illuminate\Http\Request;
