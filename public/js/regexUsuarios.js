@@ -28,4 +28,5 @@ function validarPassword() {
         msgError.classList.add('hidden');
     }
     console.log('correcto')
+    
 } 
