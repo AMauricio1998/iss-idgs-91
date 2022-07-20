@@ -23,7 +23,7 @@
                 @if (isset($cdSolicitud))
                     @foreach ($cdSolicitud as $cd)
                         <a href="{{ route('editar-solicitud', $cd->codigo_solicitud) }}" class="hover:bg-blue-600 rounded-lg py-1 px-1 border-2 border-gray-300 opacity-100 bg-blue-400 font-semibold text-white">
-                            <i class="fa-solid fa-file"></i> Generar solicitud
+                            <i class="fa-solid fa-file"></i> Actualizar solicitud
                         </a>
                     @endforeach
                 @else

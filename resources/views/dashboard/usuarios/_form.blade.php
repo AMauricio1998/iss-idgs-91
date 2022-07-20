@@ -131,25 +131,38 @@
         </div>
 
         <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+            @if (request()->routeIs('usuario-create'))
+                <div class="mt-4">
+                    <x-label for="password" :value="__('Password')" />
 
-                <x-input id="password" class="block mt-1 w-full"
-                    type="password"
-                    name="password"
-                    required autocomplete="new-password" 
-                    :value="old('password', $user->password)"
-                />
-            </div>
+                    <x-input id="password" class="block mt-1 w-full"
+                        type="password"
+                        name="password"
+                        autocomplete="new-password" 
+                        :value="old('password', $user->password)"
+                        required
+                    />
+                    <div id="alert-pass" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+                        <strong class="font-bold">Alerta!</strong>
+                        <span class="block sm:inline">
+                            La contraseña debe de contener de 8 a 15 caracteres al menos una mayuscula, minuscula, numero,
+                            caracter especial y sin espacios.
+                        </span>
+                    </div>
+                </div>
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <!-- Confirm Password -->
+                <div class="mt-4">
+                    <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
+                    <x-input id="password_confirmation" class="block mt-1 w-full"
+                        type="password"
+                        name="password_confirmation"
+                        required
+
+                    />
+                </div>
+            @endif
 
         <div class="mt-4">
             <x-label for="id_area" :value="__('Area')" />

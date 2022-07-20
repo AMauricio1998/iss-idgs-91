@@ -61,7 +61,7 @@ class UpdateUserPut extends FormRequest
             'calle' => ['required', 'string', 'max:255'],
             'cod_postal' => ['required', 'string', 'max:5'],
             'num_calle' => ['required', 'string', 'max:255'],
-            'estado' => ['required', 'string', 'max:255'],
+            'estado' => ['required', 'max:255'],
             'municipio' => ['required', 'string', 'max:255'],
             'email' => 'required', 'string', 'email', 'max:255', 'unique:users'.$this->route('id'),
             'id_area' => ['required'],

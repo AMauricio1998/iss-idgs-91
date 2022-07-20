@@ -82,9 +82,8 @@ class CarritoController extends Controller
     }
 
     public function store() {
-        $solicitudes = Solicitud::all();
-        $last = $solicitudes->last();
-        $newId = $last->id_solicitud + 1;
+        $solicitudes = Solicitud::all()->last();
+        $newId = $solicitudes->id_solicitud + 1;
 
         $time = Carbon::now();
         $date = $time->format('Ymd');
@@ -96,7 +95,7 @@ class CarritoController extends Controller
 
         $solicitud = New Solicitud();
         $solicitud->id_solicitud = $newId;
-        $solicitud->codigo_solicitud = (int)$cdSolicitud;
+        $solicitud->codigo_solicitud = $cdSolicitud;
         $solicitud->num_productos = $cantidad;
         $solicitud->id_usuario = auth()->user()->id;
         $solicitud->id_status = 1;
@@ -215,7 +214,7 @@ class CarritoController extends Controller
     public function mostrar_carrito($codigo){
         $cartItems = \Cart::session(auth()->user()->id)->getContent();
         $user = DB::table('users')
-                    ->select('users.name', 'users.app', 'users.apm', 'users.email', 'users.cod_postal', 'users.colonia', 'users.calle')
+                    ->select('users.name', 'users.id', 'users.app', 'users.apm', 'users.email', 'users.cod_postal', 'users.colonia', 'users.calle')
                     ->where('users.id', '=', Auth::user()->id)
                     ->get();
         

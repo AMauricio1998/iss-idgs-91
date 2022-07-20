@@ -115,7 +115,7 @@
             </td>
             <td class="uno">
                 <FONT FACE="arial" SIZE=2>
-                    <center> {{ $total->Total }} </center>
+                    <center> {{ $total }} </center>
                 </FONT>
             </td>
         </tr>

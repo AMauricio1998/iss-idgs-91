@@ -19,5 +19,5 @@
     </div>
     <br>
 </x-app-layout>
-
+<script type="text/javascript" src="{{ asset('js/regexUsuarios.js') }}"></script>   
 <script type="text/javascript" src="{{ asset('/js/select-edo.js') }}"></script>

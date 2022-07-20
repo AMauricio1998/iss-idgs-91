@@ -58,14 +58,18 @@
                         <x-nav-link :href="route('nueva-solicitud')" :active="request()->routeIs('nueva-solicitud')">
                             <i class="fa-solid fa-scissors"></i>{{ __('Productos') }}
                         </x-nav-link>
-                        
-                        <x-nav-link :href="route('informacion-cart')" :active="request()->routeIs('informacion-cart')">
-                            <i class="fa-solid fa-cart-shopping "></i>{{ __('Carrito') }}
-                            <span 
-                                class="mx-1 bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">
-                                {{ \Cart::session(Auth::user()->id)->getContent()->count() }}
-                            </span>
-                        </x-nav-link>
+
+                        @if (request()->routeIs('productos_editar'))
+                            
+                        @else
+                            <x-nav-link :href="route('informacion-cart')" :active="request()->routeIs('informacion-cart')">
+                                <i class="fa-solid fa-cart-shopping "></i>{{ __('Carrito') }}
+                                <span 
+                                    class="mx-1 bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">
+                                    {{ \Cart::session(Auth::user()->id)->getContent()->count() }}
+                                </span>
+                            </x-nav-link>    
+                        @endif
                     @endif
                 </div>
             </div>
@@ -149,6 +153,7 @@
                 <x-responsive-nav-link :href="route('informacion-cart')" :active="request()->routeIs('informacion-cart')">
                     {{ __('Carrito') }}
                 </x-responsive-nav-link>
+
                 <x-responsive-nav-link :href="route('nueva-solicitud')" :active="request()->routeIs('nueva-solicitud')">
                     {{ __('Productos') }}
                 </x-responsive-nav-link>

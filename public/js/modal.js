@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let button = document.getElementById("ok-btn");
     
     let modalPdf = document.getElementById('popup-modalPdf');
-    let buttonPdf = document.getElementById("ok-btn-pdf");
     let btnPdf = document.querySelectorAll("#open-btn-pdf");
+    let buttonPdf = document.getElementById("ok-btn-pdf");
 
-    if(btn !== null){
+    if(btn !== null && button !== null){
         const modalClick = function (event) {
             modal.style.display = "block"
         }

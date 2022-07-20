@@ -77,29 +77,34 @@
         <div id="features" class="cards-1">
             <div class="container px-4 sm:px-8 xl:px-4">
 
-                <div class="card">
+                <div class="card" style="height: 400px">
                     <div class="card-image">
-                        <img src="{{ asset('img/features-icon-1.svg') }}" alt="alternative" />
+                        <img src="{{ asset('img/iStock-1178358038.jpg') }}" style="width: 50%" alt="alternative" />
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Mision</h5>
-                        <p class="mb-4"></p>
+                        <h5 class="card-title">Importancia</h5>
+                        <p class="mb-4">La importancia de tener inventarios dentro de la empresa reside en conocer 
+                            con exactitud la cantidad de productos almacenados dentro de la empresa en un momento determinado.
+                        </p>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" style="height: 400px">
                     <div class="card-image">
-                        <img src="{{ asset('img/features-icon-2.svg') }}" alt="alternative" />
+                        <img src="{{ asset('img/obj.png') }}" style="width: 50%; height: 50%;"  alt="objetivo" />
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Vision</h5>
-                        <p class="mb-4"></p>
+                        <h5 class="card-title">Objetivo</h5>
+                        <p class="mb-4">
+                            El tener un inventario nos dará una idea más clara del tiempo que
+                             se necesita para solicitar materia prima, así como cuántos productos se necesitan para cubrir la demanda.
+                        </p>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" style="height: 400px">
                     <div class="card-image">
-                        <img src="{{ asset('img/features-icon-3.svg') }}" alt="alternative" />
+                        <img src="{{ asset('img/descarga.png') }}" style="width: 50%" alt="alternative" />
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Productos mas solicitados</h5>

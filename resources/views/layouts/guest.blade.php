@@ -17,6 +17,8 @@
         {!! htmlScriptTagJsApi(['lang' => 'es'])  !!}
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <link rel="icon" href="{{ asset('img/grupo.png') }}" />
+
     </head>
     <body>
         @include('partials.nav-guest')

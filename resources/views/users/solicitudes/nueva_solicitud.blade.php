@@ -24,6 +24,19 @@
                         <input type="text" id="search" name="search" value="{{ request('search') }}" class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
                     </div>
                 </form>
+                @if (isset($solicitud))
+                    @foreach ($solicitud as $soli)
+                        <a
+                        href="{{ route('mostrar-carrito', $soli->codigo_solicitud) }}"
+                            class = "
+                                bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white 
+                                py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 text-center mt-3
+                            "
+                        >
+                            Mostrar Carrito
+                        </a>
+                    @endforeach
+                @endif
                 @forelse ($productos as $producto)
                     <div tabindex="0" aria-label="card 1" class="focus:outline-none lg:w-1/2 mt-3 lg:mr-7 lg:mb-0 mb-7 bg-white dark:bg-gray-800  p-6 shadow rounded">
                         <div class="flex items-center border-b border-gray-200 dark:border-gray-700  pb-6">
@@ -54,7 +67,10 @@
                     @foreach ($solicitud as $soli)
                         <a
                         href="{{ route('mostrar-carrito', $soli->codigo_solicitud) }}"
-                            class="bg-blue-500 mt-2 py-1 px-1 font-semibold rounded-lg border-2 border-gray-300 text-white hover:bg-blue-700"
+                            class = "
+                                bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white 
+                                py-2 px-4 border border-blue-500 hover:border-transparent rounded w-1/2 text-center
+                            "
                         >
                             Mostrar Carrito
                         </a>
