@@ -111,7 +111,7 @@
                         </table>
                         <div class="max-w-4xl w-full flex flex-row justify-between border-2 border-gray-200 bg-gray-100 rounded-lg py-2 px-2">
                             <div class="font-bold text-lg mx-6">Total</div>
-                            <div class="font-bold text-lg mx-6">{{ $total->Total}} productos</div>
+                            <div class="font-bold text-lg mx-6">{{ $total}} productos</div>
                         </div>
                         <div class="max-w-4xl w-full flex flex-row justify-between bg-gray-100 rounded-lg py-2 px-2">
                             <div class="font-bold text-lg mx-6">
