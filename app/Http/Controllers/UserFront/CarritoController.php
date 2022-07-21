@@ -4,6 +4,7 @@ namespace App\Http\Controllers\UserFront;
 
 // use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Controller;
+use App\Models\DetalleSolicitud;
 use App\Models\Producto;
 use App\Models\ProductosImagen;
 use App\Models\Solicitud;
@@ -151,11 +152,12 @@ class CarritoController extends Controller
             ->where('solicitudes.codigo_solicitud', $id)
             ->get();
     
-        $total = DB::table('solicitudes')
-            ->join('detalle_solicitudes', 'solicitudes.codigo_solicitud', '=', 'detalle_solicitudes.codigo_solicitud')
-            ->select(DB::raw('sum(detalle_solicitudes.cantidad) as Total'))
-            ->where('solicitudes.codigo_solicitud', $id)
-            ->first();
+        // $total = DB::table('solicitudes')
+        //     ->join('detalle_solicitudes', 'solicitudes.codigo_solicitud', '=', 'detalle_solicitudes.codigo_solicitud')
+        //     ->select(DB::raw('sum(detalle_solicitudes.cantidad) as Total'))
+        //     ->where('solicitudes.codigo_solicitud', $id)
+        //     ->first();
+        $total = DetalleSolicitud::where('codigo_solicitud', $id)->sum('cantidad');
 
         $soli = DB::table('solicitudes')
             ->select('id_solicitud', 'codigo_solicitud')
