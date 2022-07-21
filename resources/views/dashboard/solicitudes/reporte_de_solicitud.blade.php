@@ -81,7 +81,7 @@
                 <FONT FACE="arial" SIZE=2> Total:</FONT>
                 </td>
                 <td class="uno">
-                <FONT FACE="arial" SIZE=2> <center> {{ $total->Total }} </center> </FONT>
+                <FONT FACE="arial" SIZE=2> <center> {{ $total }} </center> </FONT>
                 </td>
             </tr>
         </table>

@@ -35,11 +35,6 @@ class ReportesSolicitudes extends Controller
             ->groupby('detalle_solicitudes.cantidad', 'solicitudes.created_at', 'solicitudes.id_solicitud', 'solicitudes.codigo_solicitud', 'users.name', 'users.app', 'users.apm', 'areas.nombre_area', 'productos.nombre')
             ->get();
 
-        // $total = DB::table('solicitudes')
-        //     ->join('detalle_solicitudes', 'solicitudes.codigo_solicitud', '=', 'detalle_solicitudes.codigo_solicitud')
-        //     ->select(DB::raw('sum(detalle_solicitudes.cantidad) as Total'))
-        //     ->where('solicitudes.codigo_solicitud', $id)
-        //     ->first();
         $total = DetalleSolicitud::where('codigo_solicitud', $id)->sum('cantidad');
 
         $pdf = App::make('dompdf.wrapper');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\SolicitudesFromView;
 use App\Exports\UsuariosFromView;
+use App\Models\DetalleSolicitud;
 use App\Models\Solicitud;
 use App\Models\User;
 use Carbon\Carbon;
@@ -87,11 +88,12 @@ class ReportesAdminController extends Controller
                 'productos.nombre'
             )->get();
 
-        $total = DB::table('solicitudes')
-            ->join('detalle_solicitudes', 'solicitudes.codigo_solicitud', '=', 'detalle_solicitudes.codigo_solicitud')
-            ->select(DB::raw('sum(detalle_solicitudes.cantidad) as Total'))
-            ->where('solicitudes.codigo_solicitud', $id)
-            ->first();
+        // $total = DB::table('solicitudes')
+        //     ->join('detalle_solicitudes', 'solicitudes.codigo_solicitud', '=', 'detalle_solicitudes.codigo_solicitud')
+        //     ->select(DB::raw('sum(detalle_solicitudes.cantidad) as Total'))
+        //     ->where('solicitudes.codigo_solicitud', $id)
+        //     ->first();
+        $total = DetalleSolicitud::where('codigo_solicitud', $id)->sum('cantidad');
 
         $pdf = App::make('dompdf.wrapper');
         $view = View::make('dashboard.solicitudes.reporte_de_solicitud', compact('encabezados', 'solicitud', 'total', 'dates'))->render();

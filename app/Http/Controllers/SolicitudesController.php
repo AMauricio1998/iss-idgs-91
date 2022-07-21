@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetalleSolicitud;
 use App\Models\Solicitud;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -74,11 +75,13 @@ class SolicitudesController extends Controller
             ->where('solicitudes.codigo_solicitud', $id->codigo_solicitud)
             ->get();
 
-        $total = DB::table('solicitudes')
-            ->join('detalle_solicitudes', 'solicitudes.codigo_solicitud', '=', 'detalle_solicitudes.codigo_solicitud')
-            ->select(DB::raw('sum(detalle_solicitudes.cantidad) as Total'))
-            ->where('solicitudes.codigo_solicitud', $id->codigo_solicitud)
-            ->first();
+        // $total = DB::table('solicitudes')
+        //     ->join('detalle_solicitudes', 'solicitudes.codigo_solicitud', '=', 'detalle_solicitudes.codigo_solicitud')
+        //     ->select(DB::raw('sum(detalle_solicitudes.cantidad) as Total'))
+        //     ->where('solicitudes.codigo_solicitud', $id->codigo_solicitud)
+        //     ->first();
+        $total = DetalleSolicitud::where('codigo_solicitud', $id->codigo_solicitud)->sum('cantidad');
+        
         
         $status = DB::table('solicitudes')
             ->select('id_status')
