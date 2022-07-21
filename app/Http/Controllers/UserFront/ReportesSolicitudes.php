@@ -30,9 +30,28 @@ class ReportesSolicitudes extends Controller
             ->join('productos', 'detalle_solicitudes.id_producto', '=', 'productos.id')
             ->join('users', 'solicitudes.id_usuario', '=', 'users.id')
             ->join('areas', 'users.id_area', '=', 'areas.id')
-            ->select('solicitudes.created_at', 'solicitudes.id_solicitud', 'solicitudes.codigo_solicitud', 'users.name', 'users.app', 'users.apm','areas.nombre_area', 'productos.nombre as nombre_producto', 'detalle_solicitudes.cantidad')
+            ->select(
+                'solicitudes.created_at', 
+                'solicitudes.id_solicitud', 
+                'solicitudes.codigo_solicitud', 
+                'users.name', 
+                'users.app', 
+                'users.apm',
+                'areas.nombre_area', 
+                'productos.nombre as nombre_producto', 
+                'detalle_solicitudes.cantidad')
             ->where('solicitudes.codigo_solicitud', $id)
-            ->groupby('detalle_solicitudes.cantidad', 'solicitudes.created_at', 'solicitudes.id_solicitud', 'solicitudes.codigo_solicitud', 'users.name', 'users.app', 'users.apm', 'areas.nombre_area', 'productos.nombre')
+            ->groupby(
+                'detalle_solicitudes.cantidad', 
+                'solicitudes.created_at', 
+                'solicitudes.id_solicitud', 
+                'solicitudes.codigo_solicitud', 
+                'users.name', 
+                'users.app', 
+                'users.apm', 
+                'areas.nombre_area', 
+                'productos.nombre'
+            )
             ->get();
 
         $total = DetalleSolicitud::where('codigo_solicitud', $id)->sum('cantidad');

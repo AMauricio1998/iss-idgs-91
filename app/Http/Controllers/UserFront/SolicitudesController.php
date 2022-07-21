@@ -30,7 +30,7 @@ class SolicitudesController extends Controller
             ->select('solicitudes.created_at', 'solicitudes.id_solicitud', 'solicitudes.codigo_solicitud', 'users.email' ,'users.name', 'users.app', 'users.apm', 'areas.nombre_area')
             ->selectRaw('count(detalle_solicitudes.cantidad) as cantidad')
             ->where('solicitudes.codigo_solicitud', $id->codigo_solicitud)
-            ->groupBy('solicitudes.created_at', 'solicitudes.id_solicitud', 'solicitudes.codigo_solicitud', 'users.name', 'users.app', 'users.apm', 'areas.nombre_area')
+            ->groupBy('solicitudes.created_at', 'solicitudes.id_solicitud', 'solicitudes.codigo_solicitud', 'users.email', 'users.name', 'users.app', 'users.apm', 'areas.nombre_area')
             ->first();
 
         // ------- Actualiza status de la solicitud ----------
