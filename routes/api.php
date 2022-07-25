@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\GraficasController;
+use App\Http\Controllers\API\ProductosController;
 use App\Http\Controllers\API\SolicitudesController;
 use App\Http\Controllers\API\UsusrioController;
 use Illuminate\Http\Request;
@@ -49,4 +50,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     // Solicitudes
     Route::name('solicitudes-index')->get('/solicitudes-index', [SolicitudesController::class, 'solicitudesIndex']);
+
+    //Productos
+    Route::name('productos-index')->get('/productos-index', [ProductosController::class, 'index']);
 });
