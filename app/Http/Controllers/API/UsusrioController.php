@@ -114,4 +114,21 @@ class UsusrioController extends Controller
             return response()->json(['error' => $e->getMessage()], $e->getMessage());
         }
     }
+
+    public function destroy(User $user) {
+        $user->delete();
+        return $user;
+    }
+
+    public function proccess(User $user){
+
+        if($user->status == '1'){
+            $user->status = '2';
+        }else{
+            $user->status = '1';
+        }
+        $user->save();
+
+        return $user;
+    }
 }

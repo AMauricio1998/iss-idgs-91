@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::name('usuario-update')->put('/usuario-update/{id}', [UsusrioController::class, 'update']);
     Route::name('select-municipios')->get('/select-municipios', [UsusrioController::class, 'selectMunicipios']);
     Route::name('dataForm')->get('/dataForm', [UsusrioController::class, 'dataForm']);
+    Route::name('usuario-destroy')->delete('/usuario-destroy/{user}', [UsusrioController::class, 'destroy']);
+    Route::name('usuario-proccess')->post('/usuario-proccess/{user}', [UsusrioController::class, 'proccess']);
 
     // Solicitudes
     Route::name('solicitudes-index')->get('/solicitudes-index', [SolicitudesController::class, 'solicitudesIndex']);
