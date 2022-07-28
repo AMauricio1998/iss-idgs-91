@@ -58,7 +58,7 @@ class RegisteredUserController extends Controller
             'estado' => ['required', 'string', 'max:255'],
             'municipio' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/',
             'id_area' => ['required'],
             'g-recaptcha-response' => 'recaptcha'
         ]);

@@ -65,7 +65,8 @@
                     <select 
                         name="estado" 
                         id="estado" 
-                        class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example"
+                        class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" 
+                        aria-label="Default select example"
                     >
                         <option value="">-- Selecciona un estado --</option>
                         @foreach ($estados as $id => $nombre)
@@ -102,7 +103,15 @@
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
                                 name="password"
-                                required autocomplete="new-password" />
+                                required autocomplete="new-password" 
+                />
+                <div id="alert-pass" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+                    <strong class="font-bold">Alerta!</strong>
+                    <span class="block sm:inline">
+                        La contraseña debe de contener de 8 a 15 caracteres al menos una mayuscula, minuscula, numero,
+                        caracter especial y sin espacios.
+                    </span>
+                </div>
             </div>
 
             <!-- Confirm Password -->
@@ -111,7 +120,13 @@
 
                 <x-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
-                                name="password_confirmation" required />
+                                name="password_confirmation" required 
+                />
+                <div id="alert-passConfirm" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+                    <strong class="font-bold">Alerta!</strong>
+                    <span class="block sm:inline" id="error-pass2">
+                    </span>
+                </div>
             </div>
 
             <div class="mt-4">
@@ -145,7 +160,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <x-button class="ml-4" id='btn-enviar'>
                     {{ __('Register') }}
                 </x-button>
             </div>
@@ -153,3 +168,4 @@
     </x-auth-card>
 </x-guest-layout>
 <script type="text/javascript" src="{{ asset('/js/select-edo.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/regexUsuarios.js') }}"></script>   
