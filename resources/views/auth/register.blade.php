@@ -94,6 +94,12 @@
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                
+                <div id="alert-email" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+                    <strong class="font-bold">Alerta!</strong>
+                    <span class="block sm:inline" id="msg-email">
+                    </span>
+                </div>
             </div>
 
             <!-- Password -->

@@ -125,6 +125,12 @@
 
             <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $user->email)" required />
 
+            <div id="alert-email" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+                <strong class="font-bold">Alerta!</strong>
+                <span class="block sm:inline" id="msg-email">
+                </span>
+            </div>
+
             @error('email')
                 <small class="text-red-700">{{ $message }}</small>
             @enderror
@@ -161,6 +167,12 @@
                         required
 
                     />
+
+                    <div id="alert-passConfirm" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+                        <strong class="font-bold">Alerta!</strong>
+                        <span class="block sm:inline" id="error-pass2">
+                        </span>
+                    </div>
                 </div>
             @endif
 
