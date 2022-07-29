@@ -17,9 +17,9 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE', ],
+    'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://issidgs.herokuapp.com/dashboard/admin/graficas', 'http://127.0.0.1:8000'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
