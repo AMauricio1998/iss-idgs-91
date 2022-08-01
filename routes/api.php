@@ -50,7 +50,9 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     // Solicitudes
     Route::name('solicitudes-index')->get('/solicitudes-index', [SolicitudesController::class, 'solicitudesIndex']);
-
+    
     //Productos
     Route::name('productos-index')->get('/productos-index', [ProductosController::class, 'index']);
 });
+
+Route::name('pdf-solicitudes')->get('/pdf-solicitudes', [SolicitudesController::class, 'pdf_solicitudes']);
