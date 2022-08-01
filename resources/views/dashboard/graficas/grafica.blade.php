@@ -16,8 +16,8 @@
                         var chart = am4core.create("chartdiv", am4charts.PieChart);
                         chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
         
-                        {{--  chart.dataSource.url = "http://issidgs.herokuapp.com/dashboard/admin/graficas";  --}}
-                        chart.dataSource.url = "http://127.0.0.1:8000/dashboard/admin/graficas";
+                        chart.dataSource.url = "http://issidgs.herokuapp.com/dashboard/admin/graficas";
+                        {{--  chart.dataSource.url = "http://127.0.0.1:8000/dashboard/admin/graficas";  --}}
         
                         var series = chart.series.push(new am4charts.PieSeries());
                         series.dataFields.value = "num_pedidos";
