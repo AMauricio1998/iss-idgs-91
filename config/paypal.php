@@ -5,7 +5,7 @@ return [
     'secret' => env('PAYPAL_SECRET'),
 
     'settings' => [
-        'mode' => env('PAYPAL_MODE', 'sandbox'),
+        'mode' => env('PAYPAL_MODE', 'live'),
         'http.ConnectionTimeOut' => 30,
         'log.LogEnabled' => true,
         'log.FileName' => storage_path('/logs/paypal.log'),

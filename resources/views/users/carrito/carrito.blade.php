@@ -1,3 +1,17 @@
+<style>
+    .paypal1 {color: #003087; font-size: 22px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-style: italic;}
+    .paypal2 {color: #009CDE; font-size: 22px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-style: italic;}
+    .paypal3 {color: #000000; font-size: 17px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; }
+    .paypal4 {color: #fafafa; font-size: 17px; font-family: Arial, Helvetica, sans-serif; }
+    .myButton0a {width: 350px; background-color:#FFC439; border-radius:4px; display:inline-block; cursor:pointer; padding:12px; text-align:center; text-decoration:none; margin-bottom: 5px; }
+    .myButton0a:hover {background-color:#fcba1f; }
+    .myButton0a:active {position:relative; top:1px; }
+    .myButton1a {width: 250px; background-color:#000000; border-radius:4px; display:inline-block; cursor:pointer; padding:12px; text-align:center; text-decoration:none; }
+    .myButton1a:hover {background-color:#2b2b2b; }
+    .myButton1a:active {position:relative; top:1px; }
+
+</style>
+
 <x-app-layout>
     <x-slot name="header">
         <center>
@@ -8,8 +22,18 @@
     </x-slot>
 
     <!-- component -->
-<div class="flex justify-center my-6">
+<div class="flex justify-center my-6">  
     <div class="flex flex-col w-full p-14 rounded-lg text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5 relative">
+        @if(Session::has('msg-paypal'))
+            <div class="bg-red-400 font-bold uppercase text-white text-center" role="alert">
+                {{ Session::get('msg-paypal') }}
+            </div>
+        @endif
+        @if(Session::has('msg-paypal2'))
+            <div class="bg-green-400 font-bold uppercase text-white text-center" role="alert">
+                {{ Session::get('msg-paypal2') }}
+            </div>
+        @endif
         <div class="rounded-lg flex flex-rows justify-around bg-gradient-to-r from-blue-400 to-blue-700 -top-3 w-2/3 items-center mx-28 absolute h-14">
             <div>
                 <a href="{{ route('eliminar-carrito') }}" class="hover:bg-blue-600 rounded-lg py-1 px-1 border-2 border-gray-300 opacity-100 bg-blue-400 font-semibold text-white">
@@ -126,12 +150,13 @@
                         </p>
                     </div>
                 @endforeach
-                <div id="paypal-button-container" class="mt-2"></div>
+                <div id="paypal-button-container" class="mt-2">
+                    <a href="{{ route('paypal.pay') }}" class="myButton0a">
+                        <span class="paypal1">Pay</span><span class="paypal2">Pal</span><span class="paypal3">.me</span>
+                    </a>
+                </div>
         </center>
     </div>
   </div>
 </div>
 </x-app-layout>
-
-    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=MXN&buyer-country=MX"></script>
-    <script type="text/javascript" src="{{ asset('/js/paypal.js') }}"></script>

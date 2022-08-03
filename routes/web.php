@@ -5,6 +5,7 @@ use App\Http\Controllers\AreasController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\GraficasController;
+use App\Http\Controllers\PagosPaypalController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ReportesAdminController;
@@ -116,6 +117,10 @@ Route::group(['prefix' => 'dashboard/user', 'middleware' => ['auth', 'rol.admin'
 
     // ----------Reporte PDF de las solicitudes ---------------
     Route::name('pdf_solicitudes')->get('pdf_solicitudes/{id?}', [ReportesSolicitudes::class, 'pdf_solicitudes']);
+
+    //------- PAYPAL2 ------
+    Route::name('paypal.pay')->get('paypal/pay', [PagosPaypalController::class, 'payWithPayPal']);
+    Route::name('paypal.status')->get('/paypal/status', [PagosPaypalController::class, 'paypalStatus']);
 
     //------- PAYPAL ------
     Route::name('paypal.process')->get('paypal/process/{orderId?}', [PaymentController::class, 'process']);
