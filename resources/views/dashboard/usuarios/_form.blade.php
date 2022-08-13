@@ -40,6 +40,12 @@
             @error('telefono')
                 <small class="text-red-700">{{ $message }}</small>
             @enderror
+
+            <div id="alert-tel" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+                <strong class="font-bold">Alerta!</strong>
+                <span class="block sm:inline" id="error-tel">
+                </span>
+            </div>
         </div>
 
         <div class="mt-4">
@@ -80,6 +86,12 @@
             @error('cod_postal')
                 <small class="text-red-700">{{ $message }}</small>
             @enderror
+
+            <div id="alert-cp" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+                <strong class="font-bold">Alerta!</strong>
+                <span class="block sm:inline" id="error-cp">
+                </span>
+            </div>
         </div>
 
         <div class="mt-4">

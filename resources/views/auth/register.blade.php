@@ -7,7 +7,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" id="form">
             @csrf
 
             <!-- Name -->
@@ -33,6 +33,11 @@
                 <x-label for="telefono" :value="__('Num. Telefono')" />
 
                 <x-input id="telefono" class="block mt-1 w-full" type="tel" name="telefono" :value="old('telefono')" required autofocus />
+                <div id="alert-tel" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+                    <strong class="font-bold">Alerta!</strong>
+                    <span class="block sm:inline" id="error-tel">
+                    </span>
+                </div>
             </div>
 
             <div class="mt-4">
@@ -57,6 +62,12 @@
                 <x-label for="cod_postal" :value="__('Codigo Postal')" />
 
                 <x-input id="cod_postal" class="block mt-1 w-full" type="number" name="cod_postal" :value="old('cod_postal')" required autofocus />
+                
+                <div id="alert-cp" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+                    <strong class="font-bold">Alerta!</strong>
+                    <span class="block sm:inline" id="error-cp">
+                    </span>
+                </div>
             </div>
 
             <div class="mt-4">

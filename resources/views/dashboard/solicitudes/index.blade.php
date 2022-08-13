@@ -14,17 +14,17 @@
             @include('dashboard.partials.session-flash-status')
             
             <div class='overflow-x-auto w-full'>
-                <div class="mx-32 py-2">
+                <div class="mx-32 py-2 sm:flex-row sm:w-full sm:justify-start">
                     <a 
                         href="{{ route('solicitudes-PDF') }}"
-                        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                        class="text-white bg-gradient-to-r from-red-400 sm:row-span-1 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                     >
                     <i class="fa-solid fa-xl fa-file-pdf"> </i> Generar PDF 
                     </a>
 
                     <a 
                         href="{{ route('excel-solicitudes') }}"
-                        class="text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-800 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700"
+                        class="text-white bg-green-800 sm:row-span-1 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-800 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700"
                     >
                         Generar excel <i class="fa-solid fa-file-excel"></i>
                     </a>

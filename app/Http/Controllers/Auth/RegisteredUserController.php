@@ -53,7 +53,7 @@ class RegisteredUserController extends Controller
             'telefono' => ['required', 'max:15'],
             'colonia' => ['required', 'string', 'max:255'],
             'calle' => ['required', 'string', 'max:255'],
-            'cod_postal' => ['required', 'string', 'max:5'],
+            'cod_postal' => 'regex:/^[0-9]{5}$/',
             'num_calle' => ['required', 'string', 'max:255'],
             'estado' => ['required', 'string', 'max:255'],
             'municipio' => ['required', 'string', 'max:255'],

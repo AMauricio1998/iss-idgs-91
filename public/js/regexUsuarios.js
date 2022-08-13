@@ -3,12 +3,52 @@ const password = document.querySelector('#password');
 const passwordConfirm = document.querySelector('#password_confirmation');
 const submit = document.querySelector('#btn-enviar');
 const inputEmail = document.querySelector('#email');
+const inputCp = document.querySelector('#cod_postal');
+const inputTel = document.querySelector('#telefono');
 
 document.addEventListener('DOMContentLoaded', () => {
     password.addEventListener('keyup', validarPassword)
     passwordConfirm.addEventListener('keyup', compararPassword)
     inputEmail.addEventListener('keyup', validarEmail)
+    inputCp.addEventListener('keyup', validarCp)
+    inputTel.addEventListener('keyup', validaTel)
 });
+
+function validaTel() {
+    const alerta = document.querySelector('#alert-tel')
+    const msg = document.querySelector('#error-tel');
+    const tel = inputTel.value
+    const regex = /^[0-9]{10}$/;
+
+    if (!regex.test(tel)) {
+        alerta.classList.remove('hidden')
+        alerta.classList.add('visible')
+        msg.textContent = 'Telefono invalido'
+        return        
+    }
+    if (alerta.classList.contains('visible')) {
+        alerta.classList.add('hidden')
+        return
+    }
+}
+
+function validarCp() {
+    const alerta = document.querySelector('#alert-cp')
+    const msg = document.querySelector('#error-cp')
+    const cp = inputCp.value;
+    const regex = /^[0-9]{5}$/;
+
+    if (!regex.test(cp)) {
+        alerta.classList.remove('hidden')
+        alerta.classList.add('visible')
+        msg.textContent = 'Codigo postal invalido'
+        return
+    }
+    if (alerta.classList.contains('visible')) {
+        alerta.classList.add('hidden')
+        return
+    }
+}
 
 function validarEmail() { 
     const newEmail = inputEmail.value;

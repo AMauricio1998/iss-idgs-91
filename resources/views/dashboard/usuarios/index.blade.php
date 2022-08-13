@@ -12,17 +12,17 @@
         @include('dashboard.partials.session-flash-status')
 
         <div class='overflow-x-auto w-full'>
-            <div class="mx-32 py-2" id="proccess">
+            <div class="mx-32 py-2 flex sm:flex-row sm:w-full sm:justify-start" id="proccess">
                 <a 
                     href="{{ route('usuario-create') }}"
-                    class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                    class="text-white bg-gray-800 sm:row-span-1 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                 >
                     Nuevo usuario
                 </a>
                 
                 <a 
                     href="{{ route('excel-usuarios') }}"
-                    class="text-white bg-green-800 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-800 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700"
+                    class="text-white bg-green-800 sm:row-span-1 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-800 dark:hover:bg-green-700 dark:focus:ring-green-700 dark:border-green-700"
                 >
                     Generar excel <i class="fa-solid fa-file-excel"></i>
                 </a>
